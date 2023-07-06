@@ -1,5 +1,5 @@
 ---
-- name: Créer un utilisateur sur Active Directory
+- name: Créer un utilisateur sur Linux
   tasks:
     - name: Add User
       user:
