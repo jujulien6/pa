@@ -1,6 +1,6 @@
 ---
 - name: Créer un utilisateur sur Linux
-  hosts: "all"
+  hosts: all
   tasks:
     - name: Add User
       user:
