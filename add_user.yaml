@@ -1,9 +1,0 @@
----
-- name: Créer un utilisateur sur Linux
-  tasks:
-    - name: Add User
-      user:
-        name: "{{ user }}"
-        comment: "{{ user }}"
-        password: "{{ password }}"
-      no_log: true
