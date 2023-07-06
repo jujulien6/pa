@@ -1,8 +1,10 @@
 ---
-# tasks file for roles/user
-- name: Add User
-  user:
-    name: "{{ user }}"
-    comment: "{{ user }}"
-    password: "{{ password }}"
-  no_log: true
+- name: Créer un utilisateur sur Active Directory
+  hosts: "{{ target_host }}"
+  tasks:
+    - name: Add User
+      user:
+        name: "{{ user }}"
+        comment: "{{ user }}"
+        password: "{{ password }}"
+      no_log: true
