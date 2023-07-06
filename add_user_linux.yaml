@@ -1,0 +1,8 @@
+- name: Créer un utilisateur sur Linux
+  tasks:
+    - name: Add User
+      user:
+        name: "utilisateur"
+        comment: "Description de l'utilisateur"
+        password: "mot_de_passe"
+      no_log: true
