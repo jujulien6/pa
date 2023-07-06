@@ -1,8 +1,10 @@
+---
 - name: Créer un utilisateur sur Linux
+  hosts: "{{ hosts }}"
   tasks:
     - name: Add User
       user:
-        name: "utilisateur"
-        comment: "Description de l'utilisateur"
-        password: "mot_de_passe"
+        name: "{{ user }}"
+        comment: "{{ user }}"
+        password: "{{ password }}
       no_log: true
