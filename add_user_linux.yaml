@@ -1,6 +1,5 @@
 ---
 - name: Créer un utilisateur sur Active Directory
-  hosts: "{{ target_host }}"
   tasks:
     - name: Add User
       user:
