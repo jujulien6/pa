@@ -1,41 +1,9 @@
 ---
-- name: Créer un utilisateur sur Active Directory
-  hosts: "{{ target_host }}"
-  vars:
-    ad_username: ""
-    ad_password: ""
-    ad_firstname: ""
-    ad_lastname: ""
-    ad_description: ""
-    ad_ou: ""
+- name: Créer un utilisateur sur Linux
   tasks:
-    - name: Ajouter un utilisateur à Active Directory
-      win_domain_user:
-        name: "{{ ad_username }}"
-        state: present
-        password: "{{ ad_password }}"
-        ou: "{{ ad_ou }}.,DC=bbjf-france,DC=fr"
-        firstname: "{{ ad_firstname }}"
-        lastname: "{{ ad_lastname }}"
-        description: "{{ ad_description }}"
-      vars_prompt:
-        - name: "ad_username"
-          prompt: "Nom d'utilisateur AD"
-          private: no
-        - name: "ad_password"
-          prompt: "Mot de passe AD"
-          private: yes
-        - name: "ad_firstname"
-          prompt: "Prénom de l'utilisateur"
-          private: no
-        - name: "ad_lastname"
-          prompt: "Nom de famille de l'utilisateur"
-          private: no
-        - name: "ad_description"
-          prompt: "Description de l'utilisateur"
-          private: no
-        - name: "ad_ou"
-          prompt: "Unité d'organisation (OU) d'Active Directory"
-          private: no
-      vars:
-        target_host: "{{ inventory_hostname }}"
+    - name: Add User
+      user:
+        name: "{{ user }}"
+        comment: "{{ user }}"
+        password: "{{ password }}"
+      no_log: true
