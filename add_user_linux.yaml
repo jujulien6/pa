@@ -1,6 +1,6 @@
 ---
 - name: Créer un utilisateur sur Linux
-  hosts: "{{ hosts }}"
+#  hosts: "{{ hosts }}"
   tasks:
     - name: Add User
       user:
