@@ -1,0 +1,25 @@
+---
+- name: Installation of Iptables
+  hosts: all
+  tasks
+    - name: Installation of Apache2
+      ansible.builtin.apt:
+    name: apache2
+    update_cache: yes
+    state: present
+      register: result_apache2
+    
+    - name: Show result Apache2
+      debug:
+        var: result_apache2
+    
+    - name: Already install Apache2
+      debug:
+        msg: "apache2 is already installed"
+      when: result_apache2.changed == false
+    
+    - name: Restart Apache2
+      service:
+        name: apache2
+        state: restarted
+      when: result_apache2.changed == true
