@@ -1,4 +1,4 @@
-- name: Installation of Iptables
+- name: Test URL
   hosts: all
   tasks:
     - name: Verify URL
