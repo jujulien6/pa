@@ -7,4 +7,3 @@
         name: "{{ user }}"
         comment: "{{ user }}"
         password: "{{ password }}"
-      no_log: true
