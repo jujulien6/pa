@@ -1,5 +1,4 @@
 ---
-hosts: all
 - name: Installation of Iptables
   apt:
     name: iptables
