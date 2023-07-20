@@ -1,0 +1,18 @@
+- name: Installation of Iptables
+  hosts: all
+  tasks:
+    - name: Verify URL
+      uri:
+        url: "{{ url }}"
+        method: GET
+      register: response
+    
+    - name: Print msg url is good
+      debug:
+        msg: "L'URL respond"
+      when: response.status == 200
+    
+    - name: Print msg url is no good
+      fail:
+        msg: "L'URL doesnt respond"
+      when: response.status != 200
