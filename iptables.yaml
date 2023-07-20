@@ -1,0 +1,23 @@
+---
+hosts: all
+- name: Installation of Iptables
+  apt:
+    name: iptables
+    update_cache: yes
+    state: present
+  register: result_iptables
+
+- name: Show result iptables
+  debug:
+    var: result_iptables
+
+- name: Already install Iptables
+  debug:
+    msg: "Iptables is already installed"
+  when: result_iptables.changed == false
+
+- name: Restart Iptables
+  service:
+    name: iptables
+    state: restarted
+  when: result_iptables.changed == true
