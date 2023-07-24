@@ -1,0 +1,12 @@
+---
+- name: Créer un utilisateur sur Linux
+  hosts: all
+  tasks:
+    - name: Ensure user bob is present with address information
+      community.windows.win_domain_user:
+        name: "{{ name }}"
+        firstname: "{{ firstname }}"
+        surname: "{{ name }}"
+        display_name: "{{ name }} {{ firstname }}"
+        password: "{{ password }}"
+        state: present
